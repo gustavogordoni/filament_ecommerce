@@ -1,4 +1,4 @@
-FROM php:8.4-fpm
+FROM php:8.3-fpm
 
 # set your user name, ex: user=carlos
 ARG user=ecommerce
@@ -12,8 +12,11 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     libpq-dev \
+    libicu-dev \
+    libzip-dev \
     zip \
-    unzip
+    unzip \
+    && docker-php-ext-install intl zip
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
