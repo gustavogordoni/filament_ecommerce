@@ -72,7 +72,6 @@ class CategoryResource extends Resource
                         ->label('Ativo')
                         ->required()
                         ->default(true),
-
                 ]),
             ]);
     }
