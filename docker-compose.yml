@@ -1,6 +1,7 @@
 services:
     # image project
     app:
+        container_name: app
         build:
             context: .
             dockerfile: Dockerfile
@@ -16,10 +17,11 @@ services:
 
     # nginx
     nginx:
+        container_name: nginx
         image: nginx:alpine
         restart: unless-stopped
         ports:
-            - "8000:80"
+            - "9000:80"
         volumes:
             - ./:/var/www
             - ./docker/nginx/:/etc/nginx/conf.d/
@@ -27,39 +29,42 @@ services:
             - laravel
 
     # db mysql
-    db:
-        image: mysql:8.0
-        platform: linux/x86_64
-        restart: unless-stopped
-        environment:
-            MYSQL_DATABASE: ${DB_DATABASE:-laravel}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
-            MYSQL_PASSWORD: ${DB_PASSWORD:-userpass}
-            MYSQL_USER: ${DB_USERNAME:-username}
-        volumes:
-            - ./.docker/mysql/dbdata:/var/lib/mysql
-        ports:
-            - "3300:3306"
-        networks:
-            - laravel
-
-    # postgres
-    # postgres:
-    #     image: postgres:16.4
+    # db:
+    #     container_name: mysql
+    #     image: mysql:8.0
+    #     platform: linux/x86_64
     #     restart: unless-stopped
     #     environment:
-    #         POSTGRES_DB: ${DB_DATABASE:-laravel}
-    #         POSTGRES_USER: ${DB_USERNAME:-username}
-    #         POSTGRES_PASSWORD: ${DB_PASSWORD:-userpass}
+    #         MYSQL_DATABASE: ${DB_DATABASE:-laravel}
+    #         MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
+    #         MYSQL_PASSWORD: ${DB_PASSWORD:-userpass}
+    #         MYSQL_USER: ${DB_USERNAME:-username}
     #     volumes:
-    #         - ./.docker/postgres/dbdata:/var/lib/postgresql/data
+    #         - ./.docker/mysql/dbdata:/var/lib/mysql
     #     ports:
-    #         - "5433:5432"
+    #         - "3300:3306"
     #     networks:
     #         - laravel
 
+    # db postgres
+    db:
+        container_name: postgres
+        image: postgres:17
+        restart: unless-stopped
+        environment:
+            POSTGRES_DB: ${DB_DATABASE:-laravel}
+            POSTGRES_USER: ${DB_USERNAME:-username}
+            POSTGRES_PASSWORD: ${DB_PASSWORD:-userpass}
+        volumes:
+            - ./.docker/postgres/dbdata:/var/lib/postgresql/data
+        ports:
+            - "5433:5432"
+        networks:
+            - laravel
+
     # PHPMyAdmin
-    # phpmyadmin:
+    # phpmyadmin:c
+    #     container_name: phpmyadmin
     #     image: phpmyadmin/phpmyadmin
     #     platform: linux/x86_64
     #     restart: unless-stopped
@@ -74,16 +79,33 @@ services:
 
     # mailhog
     # mailhog:
+    #     container_name: mailhog
     #     image: mailhog/mailhog:latest
     #     restart: always
     #     ports:
     #         - 1025:1025
     #         - 8025:8025
     #     networks:
-    #         - laravel    
+    #         - laravel
+
+    # ngrok
+    # ngrok:
+    #     container_name: ngrok
+    #     image: ngrok/ngrok:latest
+    #     restart: unless-stopped
+    #     command: ["start", "--config", "/etc/ngrok.yml", "--all"]
+    #     ports:
+    #         - 4040:4040
+    #     volumes:
+    #     - ./docker/ngrok/ngrok.yml:/etc/ngrok.yml:ro
+    #     depends_on:
+    #     - nginx
+    #     networks:
+    #     - laravel    
 
     # redis
     redis:
+        container_name: redis
         image: redis:latest
         networks:
             - laravel
