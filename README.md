@@ -1,25 +1,15 @@
-# Setup Docker Laravel
+# E-Commerce Filament
 
-### Passo a passo
+## Instalação
 
 ### Clone Repositório
-
 ```sh
-git clone -b laravel-12-with-php8.4 https://github.com/gustavogordoni/setup-docker-laravel.git
+git clone https://github.com/gustavogordoni/Filament_E-Commerce.git filament_ecommerce
 ```
 
-### Clone os Arquivos do Laravel
+### Acesse o diretório
 ```sh
-git clone https://github.com/laravel/laravel.git app_laravel
-```
-
-### Copie os arquivos docker-compose.yml, Dockerfile e o diretório docker/ para o seu projeto
-```sh
-cp -rf setup-docker-laravel/* app_laravel/
-```
-
-```sh
-cd app_laravel
+cd filament_ecommerce
 ```
 
 ### Crie o Arquivo .env
@@ -63,7 +53,6 @@ php artisan migrate
 ```sh
 php artisan db:seed 
 ```
--->
 
 ### Instale as dependências do frontend
 
@@ -78,9 +67,9 @@ npm run build
 ```
 
 > Se estiver desenvolvendo, use `npm run dev` para recompilar automaticamente ao salvar os arquivos.
-
+-->
 ---
 
 ## Acesse o projeto
 
-Abra no navegador: [http://localhost:8000](http://localhost:8000)
+Abra no navegador: [http://localhost:9000](http://localhost:9000)
