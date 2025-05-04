@@ -4,7 +4,7 @@
 
 ### Clone Repositório
 ```sh
-git clone https://github.com/gustavogordoni/Filament_E-Commerce.git filament_ecommerce
+git clone https://github.com/gustavogordoni/filament_ecommerce.git filament_ecommerce
 ```
 
 ### Acesse o diretório
