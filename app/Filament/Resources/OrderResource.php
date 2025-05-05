@@ -137,7 +137,7 @@ class OrderResource extends Resource
                                     ->required()
                                     ->distinct()
                                     ->disableOptionsWhenSelectedInSiblingRepeaterItems() // Impossibilita a seleção de produtos duplicados
-                                    ->columnSpan(5)
+                                    ->columnSpan(4)
                                     ->reactive()
                                     ->afterStateUpdated(fn($state, Set $set) => $set('unit_amount', Product::find($state)->price ?? 0))
                                     ->afterStateUpdated(fn($state, Set $set) => $set('total_amount', Product::find($state)->price ?? 0)),
@@ -148,7 +148,7 @@ class OrderResource extends Resource
                                     ->required()
                                     ->default(1)
                                     ->minValue(1)
-                                    ->columnSpan(1)
+                                    ->columnSpan(2)
                                     ->reactive()
                                     ->afterStateUpdated(fn($state, Set $set, Get $get) => $set('total_amount', $state * $get('unit_amount'))),
 
