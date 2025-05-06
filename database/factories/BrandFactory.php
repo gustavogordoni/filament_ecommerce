@@ -22,7 +22,7 @@ class BrandFactory extends Factory
         return [
             'name' => $name,
             'slug' => Str::slug($name),
-            'image' => 'brands/' . $this->faker->image('storage/app/public/brands', 400, 300, null, false),
+            'image' => null,
             'is_active' => $this->faker->boolean(90),
         ];
     }
