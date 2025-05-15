@@ -91,8 +91,8 @@
                                 class="w-full h-1 mb-4 bg-blue-100 rounded appearance-none cursor-pointer"
                                 max="500000" value="100000" step="100000">
                             <div class="flex justify-between ">
-                                <span class="inline-block text-lg font-bold text-blue-400 ">&#8377; 1000</span>
-                                <span class="inline-block text-lg font-bold text-blue-400 ">&#8377; 500000</span>
+                                <span class="inline-block text-lg font-bold text-blue-400 ">R$ 1000</span>
+                                <span class="inline-block text-lg font-bold text-blue-400 ">R$ 500000</span>
                             </div>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                                         </h3>
                                     </div>
                                     <p class="text-lg ">
-                                        <span class="text-green-600 dark:text-green-600">$800.00</span>
+                                        <span class="text-green-600 dark:text-green-600">R$ 800.00</span>
                                     </p>
                                 </div>
                                 <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
@@ -160,7 +160,7 @@
                                         </h3>
                                     </div>
                                     <p class="text-lg ">
-                                        <span class="text-green-600 dark:text-green-600">$800.00</span>
+                                        <span class="text-green-600 dark:text-green-600">R$ 800.00</span>
                                     </p>
                                 </div>
                                 <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
@@ -193,7 +193,7 @@
                                         </h3>
                                     </div>
                                     <p class="text-lg ">
-                                        <span class="text-green-600 dark:text-green-600">$800.00</span>
+                                        <span class="text-green-600 dark:text-green-600">R$ 800.00</span>
                                     </p>
                                 </div>
                                 <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
@@ -226,7 +226,7 @@
                                         </h3>
                                     </div>
                                     <p class="text-lg ">
-                                        <span class="text-green-600 dark:text-green-600">$800.00</span>
+                                        <span class="text-green-600 dark:text-green-600">R$ 800.00</span>
                                     </p>
                                 </div>
                                 <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
@@ -259,7 +259,7 @@
                                         </h3>
                                     </div>
                                     <p class="text-lg ">
-                                        <span class="text-green-600 dark:text-green-600">$800.00</span>
+                                        <span class="text-green-600 dark:text-green-600">R$ 800.00</span>
                                     </p>
                                 </div>
                                 <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
@@ -292,7 +292,7 @@
                                         </h3>
                                     </div>
                                     <p class="text-lg ">
-                                        <span class="text-green-600 dark:text-green-600">$800.00</span>
+                                        <span class="text-green-600 dark:text-green-600">R$ 800.00</span>
                                     </p>
                                 </div>
                                 <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">

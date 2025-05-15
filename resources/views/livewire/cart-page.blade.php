@@ -23,7 +23,7 @@
                                         <span class="font-semibold">Product name</span>
                                     </div>
                                 </td>
-                                <td class="py-4">$19.99</td>
+                                <td class="py-4">R$ 19.99</td>
                                 <td class="py-4">
                                     <div class="flex items-center">
                                         <button class="border rounded-md py-2 px-4 mr-2">-</button>
@@ -31,7 +31,7 @@
                                         <button class="border rounded-md py-2 px-4 ml-2">+</button>
                                     </div>
                                 </td>
-                                <td class="py-4">$19.99</td>
+                                <td class="py-4">R$ 19.99</td>
                                 <td><button
                                         class="bg-slate-300 border-2 border-slate-400 rounded-lg px-3 py-1 hover:bg-red-500 hover:text-white hover:border-red-700">Remove</button>
                                 </td>
@@ -46,20 +46,20 @@
                     <h2 class="text-lg font-semibold mb-4">Summary</h2>
                     <div class="flex justify-between mb-2">
                         <span>Subtotal</span>
-                        <span>$19.99</span>
+                        <span>R$ 19.99</span>
                     </div>
                     <div class="flex justify-between mb-2">
                         <span>Taxes</span>
-                        <span>$1.99</span>
+                        <span>R$ 1.99</span>
                     </div>
                     <div class="flex justify-between mb-2">
                         <span>Shipping</span>
-                        <span>$0.00</span>
+                        <span>R$ 0.00</span>
                     </div>
                     <hr class="my-2">
                     <div class="flex justify-between mb-2">
                         <span class="font-semibold">Total</span>
-                        <span class="font-semibold">$21.98</span>
+                        <span class="font-semibold">R$ 21.98</span>
                     </div>
                     <button class="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</button>
                 </div>
