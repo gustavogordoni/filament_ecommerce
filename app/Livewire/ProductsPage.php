@@ -9,11 +9,16 @@ use App\Models\Category;
 use Livewire\Attributes\Url;
 use Livewire\WithPagination;
 use Livewire\Attributes\Title;
+use App\Helpers\CartManagement;
+use App\Livewire\Partials\Navbar;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+
 
 #[Title('Products - Ecommerce')]
 class ProductsPage extends Component
 {
     use WithPagination;
+    use LivewireAlert;
 
     #[Url]
     public $selected_categories = [];
@@ -32,6 +37,22 @@ class ProductsPage extends Component
 
     #[Url]
     public $sort = 'latest';
+
+    public function addToCart($productId)
+    {
+        $totalCount = CartManagement::addItemToCart($productId);
+        $this->dispatch('update-cart-count', totalCount: $totalCount)->to(Navbar::class);
+
+        $this->alert(
+            'success',
+            'Product added to the cart successfully!',
+            [
+                'position' => 'bottom-end',
+                'timer' => 3000,
+                'toast' => true,
+            ]
+        );
+    }
 
     public function render()
     {
@@ -59,7 +80,7 @@ class ProductsPage extends Component
 
         if ($this->sort == 'latest') {
             $productQuery->latest();
-        } 
+        }
 
         if ($this->sort == 'price') {
             $productQuery->orderBy('price');
