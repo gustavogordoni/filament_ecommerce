@@ -26,8 +26,8 @@ class ProductFactory extends Factory
             'slug' => Str::slug($name),
             'description' => $this->faker->paragraph(),
             'price' => $this->faker->randomFloat(2, 10, 1000),
-            'category_id' => Category::factory(),
-            'brand_id' => Brand::factory(),
+            'category_id' => Category::inRandomOrder()->first()?->id ?? Category::factory(),
+            'brand_id' => Brand::inRandomOrder()->first()?->id ?? Brand::factory(),
             'images' => json_encode([
                 'products/' . $this->faker->image('storage/app/public/products', 400, 300, null, false),
             ]),

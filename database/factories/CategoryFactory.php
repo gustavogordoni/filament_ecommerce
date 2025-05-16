@@ -22,7 +22,7 @@ class CategoryFactory extends Factory
         return [
             'name' => ucfirst($name),
             'slug' => Str::slug($name),
-            'image' => 'categories/',
+            'image' => null,
             'is_active' => $this->faker->boolean(90),
         ];
     }
