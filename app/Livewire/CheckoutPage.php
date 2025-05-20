@@ -2,13 +2,15 @@
 
 namespace App\Livewire;
 
+use Exception;
 use App\Models\Order;
+use App\Models\Address;
 use Livewire\Component;
+use App\Mail\OrderPlaced;
 use Livewire\Attributes\Title;
 use App\Helpers\CartManagement;
-use App\Models\Address;
-use Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 #[Title('Checkout - Ecommerce')]
 class CheckoutPage extends Component
@@ -85,6 +87,8 @@ class CheckoutPage extends Component
         $address->save();
         $order->items()->createMany($cartItems);
         CartManagement::clearCartItems();
+
+        Mail::to(request()->user())->send(new OrderPlaced($order));
 
         return redirect()->route('success');
 
