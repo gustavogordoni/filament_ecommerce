@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Cookie;
 class CartManagement
 {
 
-    // add item to cart
-    static public function addItemToCart($productId)
+    // add item to cart with qty
+    static public function addItemToCartWithQty($productId, $quantity)
     {
         $cartItems = self::getCartItemsFromCookie();
         $existingItem = null;
@@ -22,7 +22,7 @@ class CartManagement
         }
 
         if ($existingItem !== null) {
-            $cartItems[$existingItem]['quantity']++;
+            $cartItems[$existingItem]['quantity'] = $quantity;
             $cartItems[$existingItem]['total_amount'] = $cartItems[$existingItem]['quantity'] * $cartItems[$existingItem]['unit_amount'];
         } else {
             $product = Product::where('id', $productId)->first(['id', 'name', 'price', 'images']);
@@ -32,7 +32,7 @@ class CartManagement
                     'product_id' => $product->id,
                     'name' => $product->name,
                     'images' => $product->images[0],
-                    'quantity' => 1,
+                    'quantity' => $quantity,
                     'unit_amount' => $product->price,
                     'total_amount' => $product->price
                 ];

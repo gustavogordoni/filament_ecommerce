@@ -40,7 +40,7 @@ class ProductsPage extends Component
 
     public function addToCart($productId)
     {
-        $totalCount = CartManagement::addItemToCart($productId);
+        $totalCount = CartManagement::addItemToCartWithQty($productId, 1);
         $this->dispatch('update-cart-count', totalCount: $totalCount)->to(Navbar::class);
 
         $this->alert(
