@@ -28,7 +28,7 @@ class OrderFactory extends Factory
             'payment_status' => $this->faker->randomElement(['pending', 'paid', 'failed']),
             'status' => $this->faker->randomElement(['new', 'processing', 'shipped', 'delivered', 'cancelled']),
             'currency' => $this->faker->randomElement(['brl', 'usd', 'eur']),
-            'shipping_amout' => 0,
+            'shipping_amount' => 0,
             'shipping_method' => $this->faker->randomElement(['correios', 'fedex', 'ups']),
             'notes' => $this->faker->optional()->sentence(),
         ];

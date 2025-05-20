@@ -2,6 +2,9 @@
     <h1 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
         Checkout
     </h1>
+    @if(session('error'))
+        <p>{{ session('error') }}</p>
+    @endif
     <form wire:submit.prevent="placeOrder">
         <div class="grid grid-cols-12 gap-4">
             <div class="md:col-span-12 lg:col-span-8 col-span-12">
