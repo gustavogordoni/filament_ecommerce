@@ -3,9 +3,10 @@
 namespace App\Livewire;
 
 use App\Models\Order;
-use Livewire\Attributes\Title;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Attributes\Title;
+use Illuminate\Support\Facades\Auth;
 
 #[Title('My Orders - Ecommerce')]
 class MyOrdersPage extends Component
@@ -14,7 +15,7 @@ class MyOrdersPage extends Component
 
     public function render()
     {
-        $myOrders = Order::where('user_id', auth()->id())->latest()->paginate(5);        
+        $myOrders = Order::where('user_id', Auth::id())->latest()->paginate(5);        
 
         return view('livewire.my-orders-page', [
             'orders' => $myOrders
