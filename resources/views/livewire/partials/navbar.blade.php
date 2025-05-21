@@ -112,7 +112,7 @@
                         @endauth --}}
                         @auth
                             <a href="">{{ auth()->user()->name }}</a>
-                            <a href="/my-orders">My Orders</a>
+                            <a href="/my-orders" wire:navigate>My Orders</a>
                             <a href="">My Account</a>
                             <a href="/logout">Logout</a>
                         @endauth
