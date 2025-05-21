@@ -21,7 +21,7 @@
                                     class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Order
                                     Amount</th>
                                 <th scope="col"
-                                    class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">Action</th>
+                                    class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Action</th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
@@ -99,7 +99,7 @@
                                         {!! $payment_status !!}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                         {{ Number::currency($order->grand_total, 'BRL') }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                                         <a href="/my-orders/{{ $order->id }}"
                                             class="bg-slate-600 text-white py-2 px-4 rounded-md hover:bg-slate-500">View
                                             Details</a>
