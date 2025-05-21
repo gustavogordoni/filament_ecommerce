@@ -24,11 +24,26 @@ class CheckoutPage extends Component
     public $zipCode;
     public $paymentMethod;
 
-    public function mount(){
+    public function mount()
+    {
         $cartItems = CartManagement::getCartItemsFromCookie();
 
-        if(count($cartItems) == 0){
+        if (count($cartItems) == 0) {
             return redirect('/products');
+        }
+
+        $lastAddress = Address::whereHas('order', function ($query) {
+            $query->where('user_id', Auth::id());
+        })->latest()->first();
+
+        if ($lastAddress) {
+            $this->firstName = $lastAddress->first_name;
+            $this->lastName = $lastAddress->last_name;
+            $this->phone = $lastAddress->phone;
+            $this->streetAddress = $lastAddress->street_address;
+            $this->city = $lastAddress->city;
+            $this->state = $lastAddress->state;
+            $this->zipCode = $lastAddress->zip_code;
         }
     }
 
