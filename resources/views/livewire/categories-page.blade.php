@@ -3,14 +3,18 @@
         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
 
             @foreach ($categories as $category)
-                <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" wire:key="{{ $category->id }}"
-                    href="/products?selected_categories[0]={{ $category->id }}">
+                <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-slate-900 dark:border-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    wire:key="{{ $category->id }}" href="/products?selected_categories[0]={{ $category->id }}">
                     <div class="p-4 md:p-5">
                         <div class="flex justify-between items-center">
                             <div class="flex items-center">
-                                <img class="h-[5rem] w-[5rem]"
-                                    src="{{ url('storage', $category->image) }}"
-                                    alt="{{ $category->name }}">
+                                @php
+                                    $categoryImage = $category->image
+                                        ? url('storage/' . $category->image)
+                                        : asset('img/category-image.png');
+                                @endphp
+                                <img class="h-[5rem] w-[5rem]" src="{{ $categoryImage }}" alt="{{ $category->name }}"
+                                    onerror="this.onerror=null;this.src='{{ asset('img/category-image.png') }}';">
                                 <div class="ms-3">
                                     <h3
                                         class="group-hover:text-blue-600 text-2xl font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200">

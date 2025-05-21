@@ -2,7 +2,7 @@
     <h1 class="text-2xl font-bold text-gray-800 dark:text-white mb-4">
         Checkout
     </h1>
-    @if(session('error'))
+    @if (session('error'))
         <p>{{ session('error') }}</p>
     @endif
     <form wire:submit.prevent="placeOrder">
@@ -211,11 +211,11 @@
                     </hr>
                 </div>
                 <button type="submit"
-                    class="bg-green-500 mt-4 w-full p-3 rounded-lg text-lg text-white hover:bg-green-600">                    
+                    class="bg-green-500 mt-4 w-full p-3 rounded-lg text-lg text-white hover:bg-green-600">
                     <span wire:loading.remove>Place Order</span>
                     <span wire:loading>Processing...</span>
                 </button>
-                    <div class="bg-white mt-4 rounded-xl shadow p-4 sm:p-7 dark:bg-slate-900">
+                <div class="bg-white mt-4 rounded-xl shadow p-4 sm:p-7 dark:bg-slate-900">
                     <div class="text-xl font-bold underline text-gray-700 dark:text-white mb-2">
                         BASKET SUMMARY
                     </div>
@@ -225,9 +225,8 @@
                                 <div class="flex items-center">
                                     <div class="flex-shrink-0">
                                         <img alt="{{ $item['name'] }}" class="w-12 h-12 rounded-full"
-                                            {{-- src="https://iplanet.one/cdn/shop/files/iPhone_15_Pro_Max_Blue_Titanium_PDP_Image_Position-1__en-IN_1445x.jpg?v=1695435917" --}} {{-- src="{{ url('storage'), $item['images'] }}" --}}
-                                            src="https://cdn-icons-png.flaticon.com/512/2652/2652218.png">
-                                        </img>
+                                            src="{{ $item['image_url'] ?? asset('img/product-image.png') }}">
+
                                     </div>
                                     <div class="flex-1 min-w-0 ms-4">
                                         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">

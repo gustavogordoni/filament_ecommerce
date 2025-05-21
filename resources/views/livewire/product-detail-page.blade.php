@@ -7,21 +7,26 @@
                         <div class="relative mb-6 lg:mb-10 lg:h-2/4 ">
                             <img x-bind:src="mainImage" alt="" class="object-cover w-full lg:h-full ">
                         </div>
-                        <div class="flex-wrap hidden md:flex ">
 
+                        <div class="flex-wrap hidden md:flex">
                             @if (is_iterable($product->images) && count($product->images) > 0)
-                                <div class="flex-wrap hidden md:flex">
-                                    @foreach ($product->images as $image)
-                                        <div class="w-1/2 p-2 sm:w-1/4"
-                                            x-on:click="mainImage='{{ url('storage', $image) }}'">
-                                            <img src="{{ url('storage', $image) }}" alt="{{ $product->name }}"
-                                                class="object-cover w-full lg:h-20 cursor-pointer hover:border hover:border-blue-500">
-                                        </div>
-                                    @endforeach
+                                @foreach ($product->images as $image)
+                                    <div class="w-1/2 p-2 sm:w-1/4"
+                                        x-on:click="mainImage='{{ url('storage', $image) }}'">
+                                        <img src="{{ url('storage', $image) }}" alt="{{ $product->name }}"
+                                            class="object-cover w-full lg:h-20 cursor-pointer hover:border hover:border-blue-500"
+                                            onerror="this.src='{{ asset('img/product-image.png') }}'">
+                                    </div>
+                                @endforeach
+                            @else
+                                <div class="w-1/2 p-2 sm:w-1/4"
+                                    x-on:click="mainImage='{{ asset('img/product-image.png') }}'">
+                                    <img src="{{ asset('img/product-image.png') }}" alt="Imagem padrão"
+                                        class="object-cover w-full lg:h-20 cursor-pointer hover:border hover:border-blue-500">
                                 </div>
                             @endif
-
                         </div>
+
                         <div class="px-6 pb-6 mt-6 border-t border-gray-300 dark:border-gray-400 ">
                             <div class="flex flex-wrap items-center mt-6">
                                 <span class="mr-2">
@@ -72,8 +77,10 @@
                         <div class="flex flex-wrap items-center gap-4">
                             <button wire:click='addToCart({{ $product->id }})'
                                 class="w-full p-4 bg-blue-500 rounded-md lg:w-2/5 dark:text-gray-200 text-gray-50 hover:bg-blue-600 dark:bg-blue-500 dark:hover:bg-blue-700">
-                                <span wire:loading.remove wire:target="addToCart({{ $product->id }})" class="font-semibold">Add to cart</span>
-                                <span wire:loading wire:target="addToCart({{ $product->id }})" class="font-semibold">Adding...</span>
+                                <span wire:loading.remove wire:target="addToCart({{ $product->id }})"
+                                    class="font-semibold">Add to cart</span>
+                                <span wire:loading wire:target="addToCart({{ $product->id }})"
+                                    class="font-semibold">Adding...</span>
                             </button>
                         </div>
                     </div>

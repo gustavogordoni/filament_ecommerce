@@ -28,9 +28,7 @@ class ProductFactory extends Factory
             'price' => $this->faker->randomFloat(2, 10, 1000),
             'category_id' => Category::inRandomOrder()->first()?->id ?? Category::factory(),
             'brand_id' => Brand::inRandomOrder()->first()?->id ?? Brand::factory(),
-            'images' => json_encode([
-                'products/' . $this->faker->image('storage/app/public/products', 400, 300, null, false),
-            ]),
+            'images' => null,
             'is_active' => $this->faker->boolean(90),
             'is_featured' => $this->faker->boolean(40),
             'on_sale' => $this->faker->boolean(30),

@@ -23,7 +23,7 @@
                                             <div class="flex items-center">
                                                 {{-- <img class="h-16 w-16 mr-4" src="{{ url('storage', $item['images'])}}" --}}
                                                 <img class="h-16 w-16 mr-4"
-                                                    src="https://cdn-icons-png.flaticon.com/512/2652/2652218.png"
+                                                    src="{{ $item['image_url'] ?? asset('img/product-image.png') }}"
                                                     alt="Product image {{ $item['name'] }}">
                                                 <span class="font-semibold">{{ $item['name'] }}</span>
                                             </div>
@@ -83,7 +83,8 @@
                         </div>
 
                         @if ($cartItems)
-                            <a href="/checkout" class="bg-blue-500 block text-center text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</a>
+                            <a href="/checkout"
+                                class="bg-blue-500 block text-center text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</a>
                         @endif
                     </div>
                 </div>

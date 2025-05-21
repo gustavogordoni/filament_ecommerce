@@ -28,13 +28,17 @@ class CartManagement
             $product = Product::where('id', $productId)->first(['id', 'name', 'price', 'images']);
 
             if ($product) {
+                $mainImage = is_iterable($product->images) && count($product->images) > 0
+                    ? url('storage', $product->images[0])
+                    : asset('img/product-image.png');
+
                 $cartItems[] = [
                     'product_id' => $product->id,
                     'name' => $product->name,
-                    'images' => $product->images[0],
+                    'image_url' => $mainImage,
                     'quantity' => $quantity,
                     'unit_amount' => $product->price,
-                    'total_amount' => $product->price
+                    'total_amount' => $product->price * $quantity
                 ];
             }
         }

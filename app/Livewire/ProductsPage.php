@@ -90,7 +90,7 @@ class ProductsPage extends Component
             function ($product) {
                 $product->main_image = is_iterable($product->images) && count($product->images) > 0
                     ? url('storage', $product->images[0])
-                    : "https://cdn-icons-png.flaticon.com/512/2652/2652218.png";
+                    : asset('img/product-image.png');
 
                 return $product;
             }

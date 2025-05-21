@@ -192,9 +192,17 @@
                             <tr wire:key="{{ $item->id }}">
                                 <td class="py-4">
                                     <div class="flex items-center">
-                                        <img class="h-16 w-16 mr-4"
-                                            src="https://cdn-icons-png.flaticon.com/512/2652/2652218.png"                                            
+                                        @php
+                                            $image =
+                                                is_iterable($item->product->images) && count($item->product->images) > 0
+                                                    ? url('storage/' . $item->product->images[0])
+                                                    : asset('img/product-image.png');
+                                        @endphp
+
+                                        <img class="h-16 w-16 mr-4" src="{{ $image }}"
+                                            onerror="this.onerror=null;this.src='{{ asset('img/product-image.png') }}';"
                                             alt="Product image">
+
                                         <span class="font-semibold">{{ $item->product->name }}</span>
                                     </div>
                                 </td>
@@ -213,8 +221,9 @@
             <div class="bg-white overflow-x-auto rounded-lg shadow-md p-6 mb-4">
                 <h1 class="font-3xl font-bold text-slate-500 mb-3">Shipping Address</h1>
                 <div class="flex justify-between items-center">
-                    <div>                        
-                        <p>{{ $address->street_address }}, {{ $address->city }}, {{ $address->state }}, {{ $address->zip_code }}</p>
+                    <div>
+                        <p>{{ $address->street_address }}, {{ $address->city }}, {{ $address->state }},
+                            {{ $address->zip_code }}</p>
                     </div>
                     <div>
                         <p class="font-semibold">Phone:</p>
