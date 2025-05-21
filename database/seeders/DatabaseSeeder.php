@@ -16,8 +16,12 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-    {
-        // User::factory(10)->create();
+    {       
+        $this->call([
+            CategorySeeder::class,
+            BrandSeeder::class,
+            ProductSeeder::class,
+        ]);
 
         User::factory()->create([
             'name' => 'Admin User',
@@ -30,9 +34,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()->count(5)->create();
-        Category::factory()->count(5)->create();
-        Brand::factory()->count(5)->create();
-        Product::factory()->count(10)->create();
-        Order::factory()->count(50)->create();
+        // Category::factory()->count(5)->create();
+        // Brand::factory()->count(7)->create();
+        // Product::factory()->count(50)->create();
+        Order::factory()->count(30)->create();
     }
 }
