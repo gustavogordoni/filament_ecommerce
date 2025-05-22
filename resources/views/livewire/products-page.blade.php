@@ -3,13 +3,13 @@
         <div class="px-4 py-4 mx-auto max-w-7xl lg:py-6 md:px-6">
             <div class="flex flex-wrap mb-24 -mx-3">
                 <div class="w-full pr-2 lg:w-1/4 lg:block">
-                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:border-gray-900 dark:bg-gray-900">
-                        <h2 class="text-2xl font-bold dark:text-gray-400"> Categories</h2>
+                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:border-gray-900 dark:bg-gray-900 rounded-lg">
+                        <h2 class="text-2xl font-bold dark:text-gray-300">Categories</h2>
                         <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
                         <ul>
                             @foreach ($categories as $categorie)
                                 <li class="mb-4" wire:key="{{ $categorie->id }}">
-                                    <label for="{{ $categorie->slug }}" class="flex items-center dark:text-gray-400 ">
+                                    <label for="{{ $categorie->slug }}" class="flex items-center dark:text-gray-300">
                                         <input id="{{ $categorie->slug }}" type="checkbox"
                                             wire:model.live="selected_categories" value="{{ $categorie->id }}"
                                             class="w-4 h-4 mr-2">
@@ -20,8 +20,8 @@
                         </ul>
 
                     </div>
-                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900">
-                        <h2 class="text-2xl font-bold dark:text-gray-400">Brand</h2>
+                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900 rounded-lg">
+                        <h2 class="text-2xl font-bold dark:text-gray-300">Brand</h2>
                         <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
                         <ul>
                             @foreach ($brands as $brand)
@@ -29,38 +29,38 @@
                                     <label for="{{ $brand->slug }}" class="flex items-center dark:text-gray-300">
                                         <input id="{{ $brand->slug }}" wire:model.live="selected_brands"
                                             type="checkbox" value="{{ $brand->id }}" class="w-4 h-4 mr-2">
-                                        <span class="text-lg dark:text-gray-400">{{ $brand->name }}</span>
+                                        <span class="text-lg dark:text-gray-300">{{ $brand->name }}</span>
                                     </label>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
-                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900">
-                        <h2 class="text-2xl font-bold dark:text-gray-400">Product Status</h2>
+                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900 rounded-lg">
+                        <h2 class="text-2xl font-bold dark:text-gray-300">Product Status</h2>
                         <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
                         <ul>
                             <li class="mb-4">
                                 <label for="featured" class="flex items-center dark:text-gray-300">
                                     <input id="featured" wire:model.live="featured" value="1" type="checkbox"
                                         class="w-4 h-4 mr-2">
-                                    <span class="text-lg dark:text-gray-400">Featured Products</span>
+                                    <span class="text-lg dark:text-gray-300">Featured Products</span>
                                 </label>
                             </li>
                             <li class="mb-4">
                                 <label for="on_sale" class="flex items-center dark:text-gray-300">
                                     <input type="checkbox" id="on_sale" wire:model.live="on_sale" value="1"
                                         class="w-4 h-4 mr-2">
-                                    <span class="text-lg dark:text-gray-400">On Sale</span>
+                                    <span class="text-lg dark:text-gray-300">On Sale</span>
                                 </label>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900">
-                        <h2 class="text-2xl font-bold dark:text-gray-400">Price</h2>
+                    <div class="p-4 mb-5 bg-white border border-gray-200 dark:bg-gray-900 dark:border-gray-900 rounded-lg">
+                        <h2 class="text-2xl font-bold dark:text-gray-300">Price</h2>
                         <div class="w-16 pb-2 mb-6 border-b border-rose-600 dark:border-gray-400"></div>
                         <div>
-                            <div class="font-semibold mb-3">{{ Number::currency($price_range, 'BRL') }}</div>
+                            <div class="font-semibold mb-3 dark:text-gray-300">{{ Number::currency($price_range, 'BRL') }}</div>
                             <input type="range" id="price_range" wire:model.live="price_range"
                                 class="w-full h-1 mb-4 bg-blue-100 rounded appearance-none cursor-pointer"
                                 max="30000" value="5000" step="100">
@@ -76,10 +76,10 @@
                 <div class="w-full px-3 lg:w-3/4">
                     <div class="px-3 mb-4">
                         <div
-                            class="items-center justify-between hidden px-3 py-2 bg-gray-100 md:flex dark:bg-gray-900 ">
+                            class="items-center justify-between hidden px-3 py-2 md:flex">
                             <div class="flex items-center justify-between">
                                 <select wire:model.live="sort" name="sort" id="sort"
-                                    class="block w-40 text-base bg-gray-100 cursor-pointer dark:text-gray-400 dark:bg-gray-900">
+                                    class="block w-40 text-base bg-gray-100 cursor-pointer dark:text-gray-300 dark:bg-gray-900 p-2 rounded">
                                     <option value="latest">Sort by latest</option>
                                     <option value="price">Sort by Price</option>
                                 </select>
@@ -90,8 +90,8 @@
 
                         @foreach ($products as $product)
                             <div class="w-full px-3 mb-6 sm:w-1/2 md:w-1/3" wire:key="{{ $product->id }}">
-                                <div class="border border-gray-300 dark:border-gray-700">
-                                    <div class="relative bg-gray-200">
+                                <div class="border border-gray-300 dark:border-gray-700 rounded-lg">
+                                    <div class="relative bg-gray-200 rounded-lg">
                                         <a href="/products/{{ $product->slug }}" class="">
                                             <img src="{{ $product->main_image }}" alt="{{ $product->name }}"
                                                 class="object-cover w-full h-56 mx-auto">
@@ -99,7 +99,7 @@
                                     </div>
                                     <div class="p-3 ">
                                         <div class="flex items-center justify-between gap-2 mb-2">
-                                            <h3 class="text-xl font-medium dark:text-gray-400">
+                                            <h3 class="text-xl font-medium dark:text-gray-300">
                                                 {{ $product->name }}
                                             </h3>
                                         </div>
@@ -111,7 +111,7 @@
                                     <div class="flex justify-center p-4 border-t border-gray-300 dark:border-gray-700">
 
                                         <a wire:click.prevent="addToCart({{ $product->id }})" href="#"
-                                            class="text-gray-500 flex items-center space-x-2 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-300">
+                                            class="text-gray-500 flex items-center space-x-2 dark:text-gray-300 hover:text-red-500 dark:hover:text-red-300">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                 fill="currentColor" class="w-4 h-4 bi bi-cart3 " viewBox="0 0 16 16">
                                                 <path

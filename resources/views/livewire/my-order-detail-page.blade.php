@@ -1,5 +1,5 @@
 <div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-    <h1 class="text-4xl font-bold text-slate-500">Order Details</h1>
+    <h1 class="text-4xl font-bold text-slate-500 dark:text-gray-300">Order Details</h1>
 
     <!-- Grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-5">
@@ -24,7 +24,7 @@
                             Customer
                         </p>
                     </div>
-                    <div class="mt-1 flex items-center gap-x-2">
+                    <div class="mt-1 flex items-center gap-x-2 dark:text-gray-200">
                         <div>{{ $address->first_name . ' ' . $address->last_name }}</div>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
 
     <div class="flex flex-col md:flex-row gap-4 mt-4">
         <div class="md:w-3/4">
-            <div class="bg-white overflow-x-auto rounded-lg shadow-md p-6 mb-4">
+            <div class="bg-white overflow-x-auto rounded-lg shadow-md p-6 mb-4 dark:bg-slate-900 dark:border-gray-800 dark:text-gray-200">
                 <table class="w-full">
                     <thead>
                         <tr>
@@ -218,7 +218,7 @@
                 </table>
             </div>
 
-            <div class="bg-white overflow-x-auto rounded-lg shadow-md p-6 mb-4">
+            <div class="bg-white overflow-x-auto rounded-lg shadow-md p-6 mb-4 dark:bg-slate-900 dark:border-gray-800 dark:text-gray-200">
                 <h1 class="font-3xl font-bold text-slate-500 mb-3">Shipping Address</h1>
                 <div class="flex justify-between items-center">
                     <div>
@@ -234,7 +234,7 @@
 
         </div>
         <div class="md:w-1/4">
-            <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="bg-white rounded-lg shadow-md p-6 dark:bg-slate-900 dark:border-gray-800 dark:text-gray-200">
                 <h2 class="text-lg font-semibold mb-4">Summary</h2>
                 <div class="flex justify-between mb-2">
                     <span>Subtotal</span>
