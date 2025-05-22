@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Address;
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -57,6 +58,16 @@ class OrderFactory extends Factory
             }
 
             $order->update(['grand_total' => $grandTotal]);
+
+            $order->address()->create([
+                'first_name' => $order->user->name,
+                'last_name' => '',
+                'phone' => fake()->phoneNumber(),
+                'street_address' => fake()->streetAddress(),
+                'city' => fake()->city(),
+                'state' => fake()->state(),
+                'zip_code' => fake()->postcode(),
+            ]);
         });
     }
 }
