@@ -20,7 +20,7 @@
 
                 <div class="grow">
                     <div class="flex items-center gap-x-2">
-                        <p class="text-xs uppercase tracking-wide text-gray-500">
+                        <p class="text-xs uppercase tracking-wide text-gray-400">
                             Customer
                         </p>
                     </div>
@@ -50,7 +50,7 @@
 
                 <div class="grow">
                     <div class="flex items-center gap-x-2">
-                        <p class="text-xs uppercase tracking-wide text-gray-500">
+                        <p class="text-xs uppercase tracking-wide text-gray-400">
                             Order Date
                         </p>
                     </div>
@@ -130,7 +130,7 @@
 
                 <div class="grow">
                     <div class="flex items-center gap-x-2">
-                        <p class="text-xs uppercase tracking-wide text-gray-500">
+                        <p class="text-xs uppercase tracking-wide text-gray-400">
                             Order Status
                         </p>
                     </div>
@@ -160,7 +160,7 @@
 
                 <div class="grow">
                     <div class="flex items-center gap-x-2">
-                        <p class="text-xs uppercase tracking-wide text-gray-500">
+                        <p class="text-xs uppercase tracking-wide text-gray-400">
                             Payment Status
                         </p>
                     </div>
@@ -219,7 +219,7 @@
             </div>
 
             <div class="bg-white overflow-x-auto rounded-lg shadow-md p-6 mb-4 dark:bg-slate-900 dark:border-gray-800 dark:text-gray-200">
-                <h1 class="font-3xl font-bold text-slate-500 mb-3">Shipping Address</h1>
+                <h1 class="font-3xl font-bold  mb-3">Shipping Address</h1>
                 <div class="flex justify-between items-center">
                     <div>
                         <p>{{ $address->street_address }}, {{ $address->city }}, {{ $address->state }},
