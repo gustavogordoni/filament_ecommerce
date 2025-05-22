@@ -48,7 +48,6 @@ php artisan key:generate
 php artisan migrate
 ```
 
-<!-- 
 ### Rode as seeds
 ```sh
 php artisan db:seed 
@@ -66,6 +65,7 @@ npm install
 npm run build
 ```
 
+<!-- 
 > Se estiver desenvolvendo, use `npm run dev` para recompilar automaticamente ao salvar os arquivos.
 -->
 ---
