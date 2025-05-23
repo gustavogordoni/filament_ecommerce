@@ -1,18 +1,36 @@
-# E-Commerce Filament
+# E-Commerce - Laravel, Livewire & Filament
 
-## Instalação
+## Sobre o Projeto
 
-### Clone Repositório
+Esse projeto é um e-commerce construído com **Laravel 12**, **Livewire 3**, **Filament 3** e **Tailwind CSS**. A ideia é criar tanto um **painel administrativo** com Filament quanto **páginas** para o usuário final usando Livewire e componentes.
+
+Trata-se de um sistema desenvolvido acompanhando a playlist **[E-Commerce Project Using Laravel 10, Livewire 3, Filament 3 & Tailwind CSS](https://youtube.com/playlist?list=PL6u82dzQtlfv8fJF3gm42TDHJdtA2NDWT&si=o_tJXmaz2pTkRmhe)** do canal [**DCodeMania**](https://www.youtube.com/@DCodeMania).
+
+## Funcionalidades
+
+Algumas das principais funcionalidades:
+
+* Cadastro e login de usuários
+* Sistema de carrinho de compras
+* Checkout para preenchimento de endereço
+* Listagem e detalhes de pedidos
+* Painel administrativo com Filament (produtos, categorias, marcas, pedidos)
+
+## Passo a passo para a Instalação
+
+### Clone o repositório
+
 ```sh
-git clone https://github.com/gustavogordoni/filament_ecommerce.git filament_ecommerce
+git clone https://github.com/gustavogordoni/filament-ecommerce.git
 ```
 
-### Acesse o diretório
+### Acesse o diretório do projeto
+
 ```sh
-cd filament_ecommerce
+cd filament-ecommerce
 ```
 
-### Crie o Arquivo .env
+### Copie o arquivo de variáveis de ambiente
 
 ```sh
 cp .env.example .env
@@ -42,15 +60,10 @@ composer install
 php artisan key:generate
 ```
 
-### Rode as migrations
+### Rode as migrations e seeds
 
 ```sh
-php artisan migrate
-```
-
-### Rode as seeds
-```sh
-php artisan db:seed 
+php artisan migrate --seed
 ```
 
 ### Instale as dependências do frontend
@@ -65,11 +78,15 @@ npm install
 npm run build
 ```
 
-<!-- 
-> Se estiver desenvolvendo, use `npm run dev` para recompilar automaticamente ao salvar os arquivos.
+<!--
+### (Opcional) Para desenvolvimento com hot reload
+
+```sh
+npm run dev
+```
 -->
----
 
-## Acesse o projeto
+## Acesse o Projeto
 
-Abra no navegador: [http://localhost:9000](http://localhost:9000)
+* Área pública: [http://localhost:7000](http://localhost:7000)
+* Painel administrativo (Filament): [http://localhost:7000/admin](http://localhost:7000/admin)
